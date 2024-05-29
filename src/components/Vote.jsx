@@ -1,5 +1,4 @@
 import * as db from "@/db";
-import auth from "../app/middleware";
 import { revalidatePath } from "next/cache";
 import { VoteButtons } from "./VoteButtons";
 
