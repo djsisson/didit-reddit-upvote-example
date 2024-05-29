@@ -32,11 +32,6 @@ export default async function SinglePostPage({ params }) {
   );
   const post = posts[0];
 
-  const { rows: votes } = await db.query(
-    `SELECT *, users.name from votes
-     JOIN users on votes.user_id = users.id`
-  );
-
   return (
     <div className="max-w-screen-lg mx-auto pt-4 pr-4">
       <div className="flex space-x-6">

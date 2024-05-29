@@ -37,7 +37,7 @@ export async function PostList({ currentPage = 1 }) {
           </li>
         ))}
       </ul>
-      <Pagination currentPage={currentPage} />
+      {/* <Pagination currentPage={currentPage} /> */}
     </>
   );
 }
