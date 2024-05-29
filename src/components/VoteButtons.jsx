@@ -16,18 +16,18 @@ export function VoteButtons({ upvote, downvote, votes, existingVote }) {
   return (
     <>
       <button formAction={upvote}>
-        {existingVote?.vote === 1 ? (
+        {existingVote === 1 ? (
           <TbArrowBigUpFilled
             size={24}
             className={clsx("hover:text-orange-600", {
-              "text-pink-300": existingVote?.vote === 1,
+              "text-pink-300": existingVote === 1,
             })}
           />
         ) : (
           <TbArrowBigUp
             size={24}
             className={clsx("hover:text-orange-600", {
-              "text-pink-300": existingVote?.vote === 1,
+              "text-pink-300": existingVote === 1,
             })}
           />
         )}
@@ -42,18 +42,18 @@ export function VoteButtons({ upvote, downvote, votes, existingVote }) {
         )}
       </span>
       <button formAction={downvote}>
-        {existingVote?.vote === -1 ? (
+        {existingVote === -1 ? (
           <TbArrowBigDownFilled
             size={24}
             className={clsx("hover:text-blue-600", {
-              "text-blue-300": existingVote?.vote === -1,
+              "text-blue-300": existingVote === -1,
             })}
           />
         ) : (
           <TbArrowBigDown
             size={24}
             className={clsx("hover:text-blue-600", {
-              "text-blue-300": existingVote?.vote === -1,
+              "text-blue-300": existingVote === -1,
             })}
           />
         )}
