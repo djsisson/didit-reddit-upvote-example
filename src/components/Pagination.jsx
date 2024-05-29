@@ -1,5 +1,5 @@
 import { POSTS_PER_PAGE } from "@/config";
-import { db } from "@/db";
+import * as db from "@/db";
 import clsx from "clsx";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 

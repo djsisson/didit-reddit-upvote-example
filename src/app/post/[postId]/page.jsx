@@ -1,7 +1,7 @@
 import { CommentForm } from "@/components/CommentForm";
 import { CommentList } from "@/components/CommentList";
 import { Vote } from "@/components/Vote";
-import { db } from "@/db";
+import * as db from "@/db";
 
 export async function generateMetadata({ params }) {
   // load the post

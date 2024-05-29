@@ -1,4 +1,4 @@
-import { db } from "@/db";
+import * as db from "@/db";
 import { CommentForm } from "./CommentForm";
 import Image from "next/image";
 
