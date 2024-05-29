@@ -1,12 +1,12 @@
 import NextAuth from "next-auth";
-import GitHubProvider from "next-auth/providers/github";
+import GitHub from "next-auth/providers/github";
 import PostgresAdapter from "@auth/pg-adapter";
 import { db } from "./db";
 
 export const { auth, handlers, signOut, signIn } = NextAuth({
   adapter: PostgresAdapter(db),
   providers: [
-    GitHubProvider({
+    GitHub({
       client: process.env.AUTH_GITHUB_ID,
       clientSecret: process.env.AUTH_GITHUB_SECRET,
     }),
