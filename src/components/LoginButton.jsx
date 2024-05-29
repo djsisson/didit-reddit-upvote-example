@@ -3,7 +3,7 @@ import { signIn } from "@/auth";
 export function LoginButton() {
   async function handleLogin() {
     "use server";
-    await signIn();
+    await signIn("github", { redirectTo: "/" });
   }
 
   return (
