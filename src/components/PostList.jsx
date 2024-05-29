@@ -3,11 +3,17 @@ import { Pagination } from "./Pagination";
 import { Vote } from "./Vote";
 import * as db from "@/db";
 import { POSTS_PER_PAGE } from "@/config";
+import auth from "../app/middleware";
 
 export async function PostList({ currentPage = 1 }) {
+  const session = await auth();
+  console.log(session?.user?.id);
   const { rows: posts } =
     await db.query(`SELECT posts.id, posts.title, posts.body, posts.created_at, users.name, 
-    COALESCE(SUM(votes.vote), 0) AS vote_total
+    COALESCE(SUM(votes.vote), 0) AS vote_total,
+    (SELECT count(*) as existing from votes where votes.post_id = posts.id AND votes.user_id = '${
+      session?.user?.id || 0
+    }')
      FROM posts
      JOIN users ON posts.user_id = users.id
      LEFT JOIN votes ON votes.post_id = posts.id
@@ -24,7 +30,11 @@ export async function PostList({ currentPage = 1 }) {
             key={post.id}
             className=" py-4 flex space-x-6 hover:bg-zinc-200 rounded-lg"
           >
-            <Vote postId={post.id} votes={post.vote_total} />
+            <Vote
+              postId={post.id}
+              votes={post.vote_total}
+              existing={post.existing}
+            />
             <div>
               <Link
                 href={`/post/${post.id}`}
