@@ -5,5 +5,6 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
-export const query = (text, params, callback) =>
-  pool.query(text, params, callback);
+export const query = async (text, params, callback) => {
+  return pool.query(text, params, callback);
+};
