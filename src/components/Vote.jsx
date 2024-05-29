@@ -61,12 +61,12 @@ export async function Vote({ postId, votes, existing }) {
   return (
     <>
       <form className="flex items-center space-x-3 pl-3">
-        <VoteButtons
+        {/* <VoteButtons
           upvote={upvote}
           downvote={downvote}
           votes={votes}
           existingVote={existing}
-        />
+        /> */}
         {/* <button formAction={upvote}>
           {existingVote?.vote === 1 ? (
             <TbArrowBigUpFilled
