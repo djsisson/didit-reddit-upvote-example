@@ -34,6 +34,7 @@ export async function PostList({ currentPage = 1 }) {
               postId={post.id}
               votes={post.vote_total}
               existing={post.existing}
+              curUser = {session?.user?.id}
             />
             <div>
               <Link

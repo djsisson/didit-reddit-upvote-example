@@ -45,17 +45,16 @@ async function handleVote(userId, postId, newVote) {
   revalidatePath(`/post/${postId}`);
 }
 
-export async function Vote({ postId, votes, existing }) {
-  const session = await auth();
+export async function Vote({ postId, votes, existing, curUser }) {
 
   async function upvote() {
     "use server";
-    await handleVote(session?.user?.id, postId, 1);
+    await handleVote(curUser, postId, 1);
   }
 
   async function downvote() {
     "use server";
-    await handleVote(session?.user?.id, postId, -1);
+    await handleVote(curUser, postId, -1);
   }
 
   return (
