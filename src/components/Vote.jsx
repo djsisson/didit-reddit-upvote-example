@@ -8,11 +8,12 @@ async function getExistingVote(userId, postId) {
     "SELECT * FROM votes WHERE user_id = $1 AND post_id = $2 LIMIT 1",
     [userId, postId]
   );
-
+  console.log("exisitng vote called");
   return existingVotes?.[0];
 }
 
 async function handleVote(userId, postId, newVote) {
+  console.log("handle vote called");
   // Check if the user has already voted on this post
   if (!userId) {
     // revalidatePath(`/post/${postId}`);
@@ -46,7 +47,6 @@ async function handleVote(userId, postId, newVote) {
 }
 
 export async function Vote({ postId, votes, existing, curUser }) {
-
   async function upvote() {
     "use server";
     await handleVote(curUser, postId, 1);
