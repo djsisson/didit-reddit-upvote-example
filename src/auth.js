@@ -8,7 +8,7 @@ export const { auth, handlers, signOut, signIn } = NextAuth({
   providers: [
     GitHubProvider({
       client: process.env.AUTH_GITHUB_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      clientSecret: process.env.AUTH_GITHUB_SECRET,
     }),
   ],
   trustHost: true,
