@@ -7,7 +7,7 @@ export const { auth, handlers, signOut, signIn } = NextAuth({
   adapter: PostgresAdapter(db),
   providers: [
     GitHubProvider({
-      client: process.env.GITHUB_CLIENT_ID,
+      client: process.env.AUTH_GITHUB_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
     }),
   ],
