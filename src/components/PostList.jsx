@@ -24,7 +24,7 @@ export async function PostList({ currentPage = 1 }) {
             key={post.id}
             className=" py-4 flex space-x-6 hover:bg-zinc-200 rounded-lg"
           >
-            <Vote postId={post.id} votes={post.vote_total} />
+            {/* <Vote postId={post.id} votes={post.vote_total} /> */}
             <div>
               <Link
                 href={`/post/${post.id}`}
@@ -37,7 +37,7 @@ export async function PostList({ currentPage = 1 }) {
           </li>
         ))}
       </ul>
-      {/* <Pagination currentPage={currentPage} /> */}
+      <Pagination currentPage={currentPage} />
     </>
   );
 }
